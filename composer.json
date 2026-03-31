@@ -1,7 +1,0 @@
-{
-    "name": "anas/telegram-bot",
-    "description": "Telegram Bot on Render",
-    "require": {
-        "php": ">=7.4"
-    }
-}
