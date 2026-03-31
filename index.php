@@ -1,5 +1,4 @@
 <?php
-// التوكن الخاص بك
 $API_KEY = "8655559292:AAFaD4pKcLBIDlUROAl5gD7HjIrkcSGhNTw";
 define('API_KEY', $API_KEY);
 
@@ -13,10 +12,9 @@ function bot($method, $datas = []) {
     return json_decode($res);
 }
 
-// استقبال التحديثات من تلجرام
 $update = json_decode(file_get_contents('php://input'));
 
-if ($update->message) {
+if (isset($update->message)) {
     $message = $update->message;
     $chat_id = $message->chat->id;
     $text = $message->text;
@@ -24,14 +22,7 @@ if ($update->message) {
     if ($text == '/start') {
         bot('sendMessage', [
             'chat_id' => $chat_id,
-            'text' => "تم تحديث الكود بنجاح! البوت الآن يعمل على Render 🚀",
-        ]);
-    }
-    
-    if ($text == 'كيفك') {
-        bot('sendMessage', [
-            'chat_id' => $chat_id,
-            'text' => "بخير يا أنس، البوت شغال تمام! 👍",
+            'text' => "يا أنس، البوت شغال الآن رسمياً على Render! 🚀"
         ]);
     }
 }
